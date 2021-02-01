@@ -1,11 +1,12 @@
-html {
-    margin: 0 0 0 20vw;
+html, body {
     padding: 0;
+    height: 100vh;
+    margin: 0;
     --prim-color: #264870;
     --sec-color: #23323a;
+    --text-color: #bbe1fa;
     color: #fff;
     overflow-x: hidden;
-    height: 100vh;
     background-color: #1b262c;
 }
 

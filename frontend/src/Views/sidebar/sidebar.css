@@ -1,0 +1,43 @@
+.sidebar {
+    font-family: sans-serif;
+    position: fixed;
+    grid-column: 1;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--sec-color);
+    text-align: center;
+}
+
+.sidebar li {
+    padding: 10px;
+    font-size: 1.5rem;
+    border-bottom: 1px groove #bbe1fa;
+    transition: all .3s;
+}
+
+.sidebar li:hover {
+    transition: all .3s;
+    background-color: #0f4c75;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.sidebar .logout {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sidebar .brand {
+    font-size: 2.2rem;
+}
