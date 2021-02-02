@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '../../Controllers/Redux/authSlice';
 import './sidebar.css';
+import ViewBugs from '../../Views/Pages/viewBugs';
 
 function Sidebar() {
     const dispatch = useDispatch()
@@ -19,9 +20,9 @@ function Sidebar() {
                 <h1 className="brand">Bug Tracker</h1>
             </Link>
             <ul>
-                <li><Link to="/dashboard" className="nav-link">Dashboard</Link></li>
-                <li><Link to="/view-bugs" className="nav-link">View Bugs</Link></li>
-                {auth.admin && <li><Link to="/create-bug" className="nav-link">Create Bug</Link></li>}
+                <Link to="/dashboard" className="nav-link"><li>Dashboard</li></Link>
+                <Link to="/view-bugs" className="nav-link"><li>View Bugs</li></Link>
+                {auth.admin && <Link to="/create-bug" className="nav-link"><li>Create Bug</li></Link>}
             </ul>
             <button className="nav-link logout" onClick={signOut}>Logout</button>
         </div>

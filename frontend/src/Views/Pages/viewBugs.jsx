@@ -10,11 +10,15 @@ function ViewBugs() {
     useEffect(() => {
         dispatch(getBugs());
     }, [bugs.length < 1]);
+
+    function clicked(name) {
+
+    }
     return (
         <div className="page-container">
             {console.log(bugs)}
             {bugs.map((bug,key) => {
-                return <BugCard key={key} bug={bug} />
+                return <BugCard key={key} bug={bug} clicked={clicked} />
             })}
         </div>
     )
