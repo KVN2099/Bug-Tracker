@@ -1,0 +1,8 @@
+.bug-card {
+    background-color: var(--sec-color);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    text-align: center;
+    margin: 10px;
+    min-width: 275px;
+    min-height: 200px;
+}
