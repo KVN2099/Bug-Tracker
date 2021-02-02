@@ -1,6 +1,4 @@
-export default bug;
-
-function bug(bug) { //  This is the structure of a bug
+function bugModel(bug) { //  This is the structure of a bug
     if (bug != undefined) {
         this._id = bug._id;
         this.name = bug.name;
@@ -13,3 +11,5 @@ function bug(bug) { //  This is the structure of a bug
         this.time = bug.time;
     }
 }
+
+export default bugModel;
