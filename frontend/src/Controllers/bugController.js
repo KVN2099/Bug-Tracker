@@ -27,7 +27,7 @@ export function retrieveBugs() {
     }));
     data.push(new bugModel({
         _id: 345456,
-        name: "Wont load",
+        name: "asdf load",
         details: "Crashes after 6 seconds",
         steps: "Open application and it will crash",
         version: "v2.0",
@@ -38,7 +38,7 @@ export function retrieveBugs() {
     }));
     data.push(new bugModel({
         _id: 345456,
-        name: "Wont load",
+        name: "dfgh load",
         details: "Crashes after 6 seconds",
         steps: "Open application and it will crash",
         version: "v2.0",

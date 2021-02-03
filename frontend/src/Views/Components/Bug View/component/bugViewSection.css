@@ -1,0 +1,19 @@
+.view-section {
+    min-width: 40%;
+    text-align: center;
+    background-color: #0f4c75;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.view-section h2 {
+    color: #bbe1fa;
+    margin: 0 0 15px 0;
+    border-bottom: 1px groove #bbe1fa;
+}
+
+.view-section p {
+    color: rgba(255, 255, 255, .5);
+    font-family: sans-serif;
+}
