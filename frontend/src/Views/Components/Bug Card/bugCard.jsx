@@ -1,6 +1,6 @@
 import React from 'react';
 import './bugCard.css';
-import PriorityController from '../../Controllers/priorityController';
+import PriorityController from '../../../Controllers/priorityController';
 
 function BugCard(props) {
     const { name, priority, version } = props.bug;
@@ -8,7 +8,7 @@ function BugCard(props) {
     const colorStyle = '10px solid ' + color;
 
     function clicked() {
-        props.clicked(props.name);
+        props.clicked(name);
     }
     return (
         <div className="bug-card" onClick={clicked} style={{ borderTop: colorStyle}}>
