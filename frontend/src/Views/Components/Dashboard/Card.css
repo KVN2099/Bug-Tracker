@@ -1,0 +1,31 @@
+.dashboard-card {
+    border-radius: 5px;
+    background-color: var(--sec-color);
+    min-width: 275px;
+    min-height: 200px;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px #000;
+    font-family: sans-serif;
+    transition: all .3s;
+}
+
+.dashboard-card h2 {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.dashboard-card p {
+    font-size: 1.5rem;
+    margin: 50px;
+}
+
+.dashboard-card:hover {
+    transition: all .3s;
+    cursor: pointer;
+    transform: scale(1.05);
+}

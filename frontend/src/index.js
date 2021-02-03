@@ -17,12 +17,12 @@ const reducer = combineReducers({
   user: userReducer
 })
 
-/*const customizedMiddleware = getDefaultMiddleware({
+const customizedMiddleware = getDefaultMiddleware({
   serializableCheck: false
-})*/
+})
 const store = configureStore({
   reducer: reducer,
-  //middleware: customizedMiddleware
+  middleware: customizedMiddleware
 })
 
 
