@@ -17,7 +17,6 @@ function ViewBugs() {
     }, [bugs.length < 1]);
 
     function clicked(name) {
-        console.log(name);
         SET_DISPLAY_BUG({
             name: name,
             isDisplayed: !DISPLAY_BUG.isDisplayed
@@ -25,11 +24,10 @@ function ViewBugs() {
     }
     return (
         <div className="page-container">
-            {console.log(bugs)}
             {bugs.map((bug,key) => {
                 return <BugCard key={key} bug={bug} clicked={clicked} />
             })}
-            {DISPLAY_BUG.isDisplayed && <BugView clicked={clicked} bug={bugs.filter(bug => bug.name == DISPLAY_BUG.name)[0]} />}
+            {DISPLAY_BUG.isDisplayed && <BugView clicked={clicked} bug={bugs.filter(bug => bug.name === DISPLAY_BUG.name)[0]} />}
         </div>
     )
 }
