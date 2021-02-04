@@ -1,15 +1,25 @@
 const route = require('express').Router();
 const userModel = require('../../Model/userModel');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 route.post('/user', (req, res) => {
-    userModel.create(req.body).then((user) => {
-        if (!user) {
-            return res.status(400).send("There was an error");
+    bcrypt.hash(req.body.password, saltRounds, function(error, hash) {
+        if (error) {
+            console.log(error);
         }
-        res.send('Created user');
-    })
-    .catch((err) => {
-        res.status(400).send(err);
+        // Store hash in your password DB.
+        let newBody = req.body;
+        newBody.password = hash
+        userModel.create(newBody).then((user) => {
+            if (!user) {
+                return res.status(400).send("There was an error");
+            }
+            res.send('Created user');
+        })
+        .catch((err) => {
+            res.status(400).send(err);
+        });
     });
 });
 
@@ -36,17 +46,19 @@ route.post('/', (req, res) => {
     });
 });
 
-route.get('/', (req, res) => {
-    userModel.find().then((user) => {
-        if (!user) {
-            return res.status(400).send("No users");
-        };
-        res.send(user);
-    }).catch((err) => {
-        if (err) {
-            res.status(400).send(err);
+route.post("/login", async (request, response) => {
+    try {
+        var user = await userModel.findOne({ name: request.body.name }).exec();
+        if(!user) {
+            return response.status(400).send({ message: "The username does not exist" });
         }
-    })
+        if(!bcrypt.compareSync(request.body.password, user.password)) {
+            return response.status(400).send({ message: "The password is invalid" });
+        }
+        response.send({ message: "The username and password combination is correct!" });
+    } catch (error) {
+        response.status(500).send(error);
+    }
 });
 
 module.exports = route;
