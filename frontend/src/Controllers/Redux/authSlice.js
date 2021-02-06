@@ -1,16 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const api = axios.create({
+    baseURL: `http://localhost:3500/`
+})
 
 const slice = createSlice({
     name: "auth",
     initialState: {
         admin: false,
-        loggedIn: false
+        loggedIn: false    
     },
     reducers: { // These are the actions used for user and admin authentication
-        signIn: (state, action) => {
-            const { name, password } = action.payload;
-            state.loggedIn = true;
-            state.admin = true;
+        signIn: async (state, action) => {
+            console.log(action.payload);
+            await api.post('/auth/login', action.payload).then((res) => {
+                if (res.status === 200) {
+                    alert("entra");
+                    state.loggedIn = true;
+                    state.admin = true;
+                    console.log(state);
+                }
+            }).catch((error) => {
+                console.log(error);
+            });
         },
         signOut: (state) => {
             state.loggedIn = false;
