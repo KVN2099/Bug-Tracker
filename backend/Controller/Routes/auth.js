@@ -48,6 +48,7 @@ route.post('/', (req, res) => {
 
 route.post("/login", async (request, response) => {
     try {
+        console.log(request);
         var user = await userModel.findOne({ name: request.body.name }).exec();
         if(!user) {
             return response.status(400).send({ message: "The username does not exist" });
